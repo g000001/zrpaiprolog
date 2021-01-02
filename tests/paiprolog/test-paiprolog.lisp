@@ -1,9 +1,9 @@
-(ql:quickload :paiprolog)
+(ql:quickload :zrpaiprolog)
 
-(defpackage :test-papiprolog
-  (:use :cl :paiprolog))
+(defpackage :test-zrpapiprolog
+  (:use :cl :zrpaiprolog))
 
-(in-package :test-papiprolog)
+(in-package :test-zrpapiprolog)
 
 (<-- (member ?item (?item . ?rest)))
 (<-  (member ?item (?x . ?rest)) (member ?item ?rest))
