@@ -34,7 +34,7 @@
 
 (defun unify! (x y)
   "Destructively unify two expressions"
-  (cond ((eql (deref x) (deref y)) t)
+  (cond ((equal (deref x) (deref y)) t)
         ((var-p x) (set-binding! x y))
         ((var-p y) (set-binding! y x))
         ((and (consp x) (consp y))
