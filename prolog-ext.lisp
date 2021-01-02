@@ -28,4 +28,21 @@
                                     `(values ,@vars))))))
 
 
+(defun add-object-clause (name obj &key asserta)
+  (let ((pred name))
+    (assert (and (symbolp pred) (not (variable-p pred))))
+    (pushnew pred *db-predicates*)
+    (pushnew pred *uncompiled*)
+    (setf (get pred 'clauses)
+	  (if asserta
+	      (nconc (list (list (list name obj))) (get-clauses pred))
+	      (nconc (get-clauses pred) (list (list (list name obj))))))
+    pred))
+
+
+(defun reset-object-clauses (name)
+  (setq *db-predicates* (remove name *db-predicates*))
+  (setf (get name 'clauses) '()))
+
+
 ;;; *EOF*

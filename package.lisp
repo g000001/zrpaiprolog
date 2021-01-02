@@ -6,7 +6,6 @@
   (:use)
   (:shadowing-import-from cl
    and >= integer number write real atom = or if catch > < read close throw char-code)
-  (:shadow ignore)
   (:export #:?-
            #:<-
            #:<--
@@ -27,7 +26,6 @@
            #:var
            #:atom
            #:integer
-           #:ignore
            #:real
            #:atomic
            #:compound
@@ -91,16 +89,13 @@
            #:prolog
            #:prolog-collect
            #:prolog-first
-           #:symbol
-           #:debug))
+           #:add-object-clause
+           #:reset-object-clauses))
 
 
 (defpackage "https://github.com/g000001/zrpaiprolog#internals"
   (:use cl "https://github.com/g000001/zrpaiprolog")
-  (:shadowing-import-from "https://github.com/g000001/zrpaiprolog"
-   #:symbol
-   #:debug
-   #:ignore)
+  (:shadow #:symbol #:debug)
   (:export #:once-only
            #:side-effect-free?
            #:funcall-if

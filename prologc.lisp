@@ -350,7 +350,7 @@
                   (show-prolog-vars ,(mapcar #'symbol-name vars)
                                     ,vars))))
   ;; Now run it
-  (run-prolog 'top-level-query/0 #'ignore)
+  (run-prolog 'top-level-query/0 (constantly nil))
   (format t "~&No.")
   (values))
 
@@ -371,10 +371,6 @@
   (with-compilation-unit ()
     (mapc #'prolog-compile symbols)
     (setf *uncompiled* (set-difference *uncompiled* symbols))))
-
-(defun ignore (&rest args)
-  (declare (cl:ignore args))
-  nil)
 
 (defun show-prolog-vars/2 (var-names vars cont)
   "Display the variables, and prompt the user to see

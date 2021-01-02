@@ -78,7 +78,7 @@ and add a clause to the data base."
        (clear-predicate 'top-level-query)
        (add-clause (print `((top-level-query)
                        ,,@(prolog-translate-goals goals))))
-       (run-prolog 'top-level-query/0 #'ignore))))
+       (run-prolog 'top-level-query/0 (constantly nil)))))
 
 #|
 (let ((x 100) y)
@@ -108,7 +108,7 @@ which is accessed from lisp functor.
                    (mapcar #'(lambda (clause)
                                (compile-clause () clause 'cont))
                            `((nil ,,@(prolog-translate-goals goals)))))))))
-        #'ignore))))
+        (constantly nil)))))
 
 
 ;;; *EOF*
