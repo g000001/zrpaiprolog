@@ -4,7 +4,7 @@
 
 ;;;; File unify.lisp: Unification functions
 
-(in-package "PAIPROLOG")
+(in-package "https://github.com/g000001/zrpaiprolog#internals")
 
 (defparameter *occurs-check* t "Should we do the occurs check?")
 

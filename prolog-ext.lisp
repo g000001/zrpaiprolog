@@ -1,4 +1,4 @@
-(in-package "PAIPROLOG")
+(in-package "https://github.com/g000001/zrpaiprolog#internals")
 
 (defun retract-same-arity-clause (clause)
   "Retract a clause from the data base"

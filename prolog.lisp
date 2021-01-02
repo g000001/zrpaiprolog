@@ -4,7 +4,7 @@
 
 ;;;; File prolog.lisp: prolog from (11.3), with interactive backtracking.
 
-(in-package "PAIPROLOG")
+(in-package "https://github.com/g000001/zrpaiprolog#internals")
 
 ;;;; does not include destructive unification (11.6); see prologc.lisp
 

@@ -8,7 +8,7 @@
 
 ;;; The basic are in auxfns.lisp; look for "PATTERN MATCHING FACILITY"
 
-(in-package "PAIPROLOG")
+(in-package "https://github.com/g000001/zrpaiprolog#internals")
 
 (defun variable-p (x)
   "Is x a variable (a symbol beginning with `?')?"

@@ -8,7 +8,7 @@
 ;;; Bug fix by Adam Farquhar, farquhar@cs.utexas.edu.
 ;;; Trivia: Farquhar is Norvig's cousin.
 
-(in-package "PAIPROLOG")
+(in-package "https://github.com/g000001/zrpaiprolog#internals")
 
 
 (defun fail/0 (cont)
@@ -95,6 +95,7 @@
       (call/1 ?goal cont))))
 
 (defun throw/1 (?ball cont)
+  (declare (cl:ignore cont))
   "7.8.10"
   (signal (make-condition 'prolog-throw :ball (deref ?ball)))
   ;; FIXME: make this a throw eventually, and have a catch around
@@ -249,6 +250,7 @@
     (funcall cont)))
 
 (defun =.. (?term ?list cont)
+  (declare (ignorable ?term ?list cont))
   "8.5.3"
   ;; FIXME: have to decide how to represent Prolog lists
   )
@@ -314,6 +316,7 @@
         (undo-bindings! old-trail)))))
 
 (defun current-predicate/1 (?pi cont)
+  (declare (cl:ignore ?pi cont))
   "8.8.2"
   ;; FIXME: need to refactor *DB-PREDICATES* so that it contains arity
   ;; information
@@ -355,6 +358,7 @@
     (funcall cont)))
 
 (defun abolish/1 (?pi cont)
+  (declare (cl:ignore ?pi cont))
   "8.9.4"
   ;; FIXME: implement this
   )
@@ -482,6 +486,7 @@
   (close/2 ?stream-or-alias nil cont))
 
 (defun close/2 (?stream-or-alias ?options cont)
+  (declare (cl:ignore ?options))
   "8.11.8"
   (with-stream (s (deref ?stream-or-alias))
     ;; FIXME: actually there's all the business about going back to
@@ -505,12 +510,14 @@
 ;;; streams.
 
 (defun at-end-of-stream/0 (cont)
+  (declare (cl:ignore cont))
   "8.11.12"
   ;; FIXME: we can fake this for character streams by doing peek-char
   ;; and handling the END-OF-FILE condition, but what about binary streams?
   )
 
 (defun at-end-of-stream/1 (?stream-or-alias cont)
+  (declare (cl:ignore ?stream-or-alias cont))
   "8.11.13"
   ;;; FIXME (see at-end-of-stream/0)
   )
@@ -536,6 +543,7 @@
 (defun get-char/2 (?stream-or-alias ?char cont)
   "8.12.2"
   (with-stream (s (deref ?stream-or-alias))
+    (declare (ignorable s))
     (when (unify! (deref ?char) (intern (string (read-char ?stream-or-alias))))
       (funcall cont))))
 

@@ -1,6 +1,105 @@
-(defpackage :paiprolog.auxfns
-  (:use :cl)
-  (:shadow #:symbol #:debug)
+(cl:in-package cl-user)
+
+(defpackage "https://github.com/g000001/zrpaiprolog"
+  (:nicknames zrpl zrpaiprolog)
+  (:use)
+  (:shadowing-import-from cl
+   and >= integer number write real atom = or if catch > < read close throw char-code)
+  (:shadow ignore)
+  (:export #:?-
+           #:<-
+           #:<--
+           #:?
+           #:fail
+           #:true
+           #:call
+           #:!
+           #:and
+           #:or
+           #:if
+           #:catch
+           #:throw
+           #:=
+           #:unify
+           #:unify-with-occurs-check
+           #:\\=
+           #:var
+           #:atom
+           #:integer
+           #:ignore
+           #:real
+           #:atomic
+           #:compound
+           #:nonvar
+           #:number
+           #:==
+           #:\\==
+           #:@<
+           #:@=<
+           #:@>2
+           #:@>=
+           #:functor
+           #:arg
+           #:copy-term
+           #:is
+           #:|=:=|
+           #:=\\=
+           #:<
+           #:=<
+           #:>
+           #:>=
+           #:clause
+           #:current-predicate
+           #:asserta
+           #:assertz
+           #:retract
+           #:abolish
+           #:findall
+           #:bagof
+           #:current-input
+           #:current-output
+           #:set-input
+           #:set-output
+           #:close
+           #:flush-output
+           #:stream-property
+           #:at-end-of-stream
+           #:set-stream-position
+           #:get-char
+           #:put-char
+           #:nl
+           #:get-code
+           #:put-code
+           #:read
+           #:write
+           #:fail-if
+           #:once
+           #:repeat
+           #:atom-length
+           #:atom-concat
+           #:sub-atom
+           #:atom-chars
+           #:atom-codes
+           #:atom-characters
+           #:string-atom
+           #:string-list
+           #:char-code
+           #:number-chars
+           #:number-codes
+           #:lisp
+           #:prolog
+           #:prolog-collect
+           #:prolog-first
+           #:symbol
+           #:debug))
+
+
+(defpackage "https://github.com/g000001/zrpaiprolog#internals"
+  (:use cl "https://github.com/g000001/zrpaiprolog")
+  (:shadowing-import-from "https://github.com/g000001/zrpaiprolog"
+   #:symbol
+   #:debug
+   #:ignore)
   (:export #:once-only
            #:side-effect-free?
            #:funcall-if
@@ -64,89 +163,5 @@
            #:first-or-nil
            #:first-or-self))
 
-(defpackage :paiprolog
-  (:use :cl :paiprolog.auxfns)
-  (:shadow #:ignore)
-  (:shadowing-import-from :paiprolog.auxfns #:symbol #:debug)
-  (:export #:?-
-           #:<-
-           #:<--
-           #:?
-           #:fail
-           #:true
-           #:call
-           #:!
-           #:and
-           #:or
-           #:if
-           #:catch
-           #:throw
-           #:=
-           #:unify-with-occurs-check
-           #:\\=
-           #:var
-           #:atom
-           #:integer
-           #:real
-           #:atomic
-           #:compound
-           #:nonvar
-           #:number
-           #:==
-           #:\\==
-           #:@<
-           #:@=<
-           #:@>2
-           #:@>=
-           #:functor
-           #:arg
-           #:copy-term
-           #:is
-           #:|=:=|
-           #:=\\=
-           #:<
-           #:=<
-           #:>
-           #:>=
-           #:clause
-           #:current-predicate
-           #:asserta
-           #:assertz
-           #:retract
-           #:abolish
-           #:findall
-           #:bagof
-           #:current-input
-           #:current-output
-           #:set-input
-           #:set-output
-           #:close
-           #:flush-output
-           #:stream-property
-           #:at-end-of-stream
-           #:set-stream-position
-           #:get-char
-           #:put-char
-           #:nl
-           #:get-code
-           #:put-code
-           #:read
-           #:write
-           #:fail-if
-           #:once
-           #:repeat
-           #:atom-length
-           #:atom-concat
-           #:sub-atom
-           #:atom-chars
-           #:atom-codes
-           #:atom-characters
-           #:string-atom
-           #:string-list
-           #:char-code
-           #:number-chars
-           #:number-codes
-           #:lisp
-           #:prolog
-           #:prolog-collect
-           #:prolog-first))
+
+;;; *EOF*

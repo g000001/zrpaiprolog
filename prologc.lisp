@@ -5,7 +5,7 @@
 ;;;; File prologc.lisp: Final version of the compiler,
 ;;;; including all improvements from the chapter.
 
-(in-package "PAIPROLOG")
+(in-package "https://github.com/g000001/zrpaiprolog#internals")
 
 #-ABCL
 (defconstant unbound (if (boundp 'unbound)

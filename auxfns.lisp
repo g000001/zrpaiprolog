@@ -5,7 +5,7 @@
 ;;; File auxfns.lisp: Auxiliary functions used by all other programs
 ;;; Load this file before running any other programs.
 
-(in-package :paiprolog.auxfns)
+(in-package "https://github.com/g000001/zrpaiprolog#internals")
 
 ;;;; Implementation-Specific Details
 
