@@ -215,7 +215,8 @@
 
 (defun symbol (&rest args)
   "Concatenate symbols or strings to form an interned symbol"
-  (intern (format nil "~:@(~{~a~}~)" args) "PAIPROLOG"))
+  (intern (format nil "~:@(~{~A~}~)" args) 
+          "https://github.com/g000001/zrpaiprolog#internals"))
 
 (defun new-symbol (&rest args)
   "Concatenate symbols or strings to form an uninterned symbol"

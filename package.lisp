@@ -1,7 +1,8 @@
 (cl:in-package cl-user)
 
+
 (defpackage "https://github.com/g000001/zrpaiprolog"
-  (:nicknames zrpl zrpaiprolog)
+  (:nicknames zrlog zrpaiprolog)
   (:use)
   (:shadowing-import-from cl
    and >= integer number write real atom = or if catch > < read close throw char-code)

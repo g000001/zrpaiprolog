@@ -1,7 +1,11 @@
 (ql:quickload :zrpaiprolog)
 
 (defpackage :test-zrpapiprolog
-  (:use :cl :zrpaiprolog))
+  (:use cl zrlog)
+  (:shadowing-import-from zrlog
+   ignore
+   symbol
+   debug))
 
 (in-package :test-zrpapiprolog)
 
