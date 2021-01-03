@@ -90,7 +90,11 @@
            #:prolog-collect
            #:prolog-first
            #:add-object-clause
-           #:reset-object-clauses))
+           #:reset-object-clauses)
+  (:export #:logic
+           #:any 
+           #:findall
+           #:defrel))
 
 
 (defpackage "https://github.com/g000001/zrpaiprolog#internals"

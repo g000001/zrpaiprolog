@@ -53,6 +53,18 @@ and add a clause to the data base."
           goals))
 
 
+(defun prolog-translate-goals (goals)
+  (mapcar (lambda (goal)
+            (if (starts-with goal 'lisp)
+                (let ((vars (variables-in (last goal))))
+                  ``(,@',(butlast goal)
+                         (apply ,(lambda (,@vars)
+                                   ,@(insert-deref (last goal)))
+                                (list ,@',vars))))
+                `',goal))
+          goals))
+
+
 #+(or)
 (let ((x 100) y)
   (prolog-compile 'TOP-LEVEL-QUERY
